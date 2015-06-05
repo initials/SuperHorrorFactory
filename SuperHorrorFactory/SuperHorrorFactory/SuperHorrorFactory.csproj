@@ -166,7 +166,7 @@
   <ItemGroup>
     <Compile Include="avatar\Avatar.cs" />
     <Compile Include="IntroState.cs" />
-    <Compile Include="Logo.cs" />
+    <Compile Include="logo\Logo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
@@ -218,9 +218,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="logo\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

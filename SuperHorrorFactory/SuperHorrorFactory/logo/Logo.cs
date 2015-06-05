@@ -24,6 +24,10 @@ namespace SuperHorrorFactory
 
             t = new Tweener(0, 360, 3.0f, XNATweener.Linear.EaseInOut);
             t.PingPong = true;
+
+
+            
+            
         }
 
         override public void update()

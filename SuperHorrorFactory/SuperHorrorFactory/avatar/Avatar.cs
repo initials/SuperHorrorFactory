@@ -16,9 +16,16 @@ namespace SuperHorrorFactory
         {
             loadGraphic("avatar/andre", true, false, 67, 100);
 
-            addAnimationsFromGraphicsGaleCSV("content/avatar/andre.csv");
+            addAnimationsFromGraphicsGaleCSV("content/avatar/andre.csv", null, null, false);
 
             play("idle");
+
+            addAnimationCallback(check);
+        }
+
+        public void check(string Name, uint Frame, int FrameIndex)
+        {
+
         }
 
         override public void update()

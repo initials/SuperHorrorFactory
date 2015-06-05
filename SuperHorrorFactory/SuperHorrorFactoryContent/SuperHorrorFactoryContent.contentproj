@@ -39,6 +39,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="sfx\thunder.wav">
+      <Name>thunder</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="avatar\andre.png">

@@ -1,5 +1,5 @@
-﻿x=320
-y=240
+﻿x=480
+y=320
 fullscreen=0
 zoom=1
 language=English
