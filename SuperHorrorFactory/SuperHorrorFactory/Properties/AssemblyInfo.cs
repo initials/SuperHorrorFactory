@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("XFlixelTemplate")]
-[assembly: AssemblyProduct("XFlixelTemplate")]
+[assembly: AssemblyTitle("Super Horror Factory")]
+[assembly: AssemblyProduct("Super Horror Factory")]
 [assembly: AssemblyDescription("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2014")]
+[assembly: AssemblyCompany("initials")]
+[assembly: AssemblyCopyright("Copyright © initials 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
