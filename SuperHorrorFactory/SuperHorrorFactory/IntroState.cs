@@ -29,6 +29,12 @@ namespace SuperHorrorFactory
             avatar = new Avatar(100, 100);
             add(avatar);
 
+            FlxSprite logo2 = new FlxSprite(0, 0);
+            logo2.loadGraphic("logo/logo", true, false, 114, 58);
+            logo2.addAnimationsFromGraphicsGaleCSV("content/logo/logo.csv", null, null, false );
+            logo2.play("drip");
+            add(logo2);
+
         }
 
         override public void update()
