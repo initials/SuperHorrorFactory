@@ -56,6 +56,14 @@ namespace SuperHorrorFactory
                 }
             }
 
+
+
+            if (FlxG.keys.F1)
+            {
+                FlxG.state = new MorseCodeState();
+                return;
+            }
+
             base.update();
         }
 
