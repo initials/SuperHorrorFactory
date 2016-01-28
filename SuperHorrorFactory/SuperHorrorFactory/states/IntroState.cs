@@ -45,14 +45,18 @@ namespace SuperHorrorFactory
             if (FlxG.elapsedFrames == 5)
             {
                 FlxG.flash.start(Color.White, 0.5f, endFlash, true);
-                FlxG.play("sfx/thunder");
+                FlxG.play("sfx/thunder", 0.5f);
             }
 
             if (FlxG.elapsedFrames > 45)
             {
                 if (FlxG.elapsedFrames % 250 == 0)
                 {
-                    FlxG.flash.start(Color.White, 0.05f, endFlash2, true);
+                    FlxG.flash.start(Color.White, 2.05f, endFlash2, true);
+
+                    avatar.play("eyeroll", true);
+                    FlxG.play("sfx/thunder", 0.5f);
+
                 }
             }
 
@@ -80,10 +84,7 @@ namespace SuperHorrorFactory
         {
             avatar.visible = true;
             avatar.play("eyeroll", true);
-
-            FlxG.play("sfx/thunder");
-            
-
+            FlxG.play("sfx/thunder", 0.5f);
         }
 
 

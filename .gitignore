@@ -51,3 +51,4 @@ SuperHorrorFactory/SuperHorrorFactory/bin/*
 SuperHorrorFactory/SuperHorrorFactory/obj/*
 SuperHorrorFactory/SuperHorrorFactoryContent/obj/*
 SuperHorrorFactory/SuperHorrorFactoryContent/bin/*
+*.cachefile
