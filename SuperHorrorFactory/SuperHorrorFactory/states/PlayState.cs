@@ -31,7 +31,7 @@ namespace SuperHorrorFactory
 
             sp = new Dictionary<string, string>();
             sp.Add("Sprite", "SuperHorrorFactory.Avatar");
-            sp.Add("x", "333");
+            sp.Add("x", "66");
             sp.Add("y", "0");
 
             createSprite(sp);
@@ -39,7 +39,7 @@ namespace SuperHorrorFactory
             sp = new Dictionary<string, string>();
             sp.Add("Sprite", "SuperHorrorFactory.Avatar");
             sp.Add("x", "0");
-            sp.Add("y", "333");
+            sp.Add("y", "55");
 
             createSprite(sp);
 
