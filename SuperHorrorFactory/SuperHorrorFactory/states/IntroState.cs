@@ -54,7 +54,7 @@ namespace SuperHorrorFactory
                 {
                     FlxG.flash.start(Color.White, 2.05f, endFlash2, true);
 
-                    avatar.play("eyeroll", true);
+                    //avatar.play("eyeroll", true);
                     FlxG.play("sfx/thunder", 0.5f);
 
                 }
@@ -69,6 +69,12 @@ namespace SuperHorrorFactory
             }
 
             base.update();
+
+            if (FlxG.keys.justPressed(Keys.Enter))
+            {
+                FlxG.state = new PlayState();
+                return;
+            }
         }
 
         private void endFlash(object Sender, FlxEffectCompletedEvent e) 
@@ -83,7 +89,7 @@ namespace SuperHorrorFactory
         private void endFlash2(object Sender, FlxEffectCompletedEvent e)
         {
             avatar.visible = true;
-            avatar.play("eyeroll", true);
+            //avatar.play("eyeroll", true);
             FlxG.play("sfx/thunder", 0.5f);
         }
 

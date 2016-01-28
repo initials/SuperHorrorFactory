@@ -13,7 +13,7 @@ using System.Text;
 using org.flixel;
 using Microsoft.Xna.Framework;
 
-namespace Loader_Four
+namespace Loader_SuperHorrorFactory
 {
     /// <summary>
     /// Flixel enters here.
@@ -30,6 +30,7 @@ namespace Loader_Four
 
             int w = FlxG.resolutionWidth / FlxG.zoom;
             int h = FlxG.resolutionHeight / FlxG.zoom;
+            string buildType = "FULL";
 
             initGame(w, h, new SuperHorrorFactory.IntroState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
 
@@ -38,11 +39,20 @@ namespace Loader_Four
 
 #if DEBUG
             FlxG.debug = true;
+            buildType = "DEBUG";
 #endif
 
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"version.txt"))
+            {
+                file.WriteLine(typeof(FlxFactory).Assembly.GetName().Version);
+            }
 
-
-
+            using (System.IO.StreamWriter file =
+            new System.IO.StreamWriter(@"buildType.txt"))
+            {
+                file.WriteLine(buildType);
+            }
         }
     }
 }

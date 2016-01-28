@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Media;
 using org.flixel;
 using System.IO;
 
-namespace Loader_Four
+namespace Loader_SuperHorrorFactory
 {
     /// <summary>
     /// Starts the game
@@ -27,63 +27,24 @@ namespace Loader_Four
         //nothing much to see here, typical XNA initialization code
         public FlxFactory()
         {
-            //Read the GAMESETTINGS.txt file
 
-            string gameSettings = File.ReadAllText("GAMESETTINGS.txt");
-            string[] splitter = gameSettings.Split('\n');
-            //Console.WriteLine(splitter[0]);
-
-
-            int widthFromTXT = Convert.ToInt32(splitter[0].Substring(2));
-            int heightFromTXT = Convert.ToInt32(splitter[1].Substring(2));
-
-#if IPHONE3
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE3.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE3.Y;
-#elif IPHONE4
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE4.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE4.Y;
-#elif IPHONE5
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE5.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE5.Y;
-#elif IPHONE6
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE6.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE6.Y;
-#elif IPHONE6PLUS
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE6PLUS.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_IPHONE6PLUS.Y;
-#elif PS_VITA
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_PSVITA.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_PSVITA.Y;
-#elif ANDROID_OUYA
-            widthFromTXT = (int)FlxGlobal.RESOLUTION_OUYA.X;
-            heightFromTXT = (int)FlxGlobal.RESOLUTION_OUYA.Y;
+            int div = 4;
+            FlxG.zoom = 1;
+#if ! DEBUG
+            FlxG.zoom = 4;
+            div = 1;
+            FlxG.fullscreen = true;
 
 #endif
-
-
-            FlxG.resolutionWidth = widthFromTXT;
-            FlxG.resolutionHeight = heightFromTXT;
-
-            if (splitter[2].Substring(11).StartsWith("1"))
-                FlxG.fullscreen = true;
-            FlxG.zoom = Convert.ToInt32(splitter[3].Substring(5));
-
+            FlxG.resolutionWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / div;
+            FlxG.resolutionHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / div;
 
             //set up the graphics device and the content manager
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-#if !__ANDROID__
             if (FlxG.fullscreen)
             {
-                int baseRezX = FlxG.resolutionWidth / FlxG.zoom;
-                int bestZoom = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / baseRezX;
-                FlxG.resolutionWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
-                FlxG.resolutionHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-
-                FlxG.zoom = bestZoom;
-
                 //resX = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
                 //resY = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
                 if (GraphicsAdapter.DefaultAdapter.IsWideScreen)
@@ -96,7 +57,6 @@ namespace Loader_Four
                     }
                 }
             }
-#endif
 
             //we don't need no new-fangled pixel processing
             //in our retro engine!
@@ -113,12 +73,7 @@ namespace Loader_Four
             }
             _graphics.ApplyChanges();
 
-            Console.WriteLine("\n\nRunning Game at Settings: {0}x{1} Fullscreen?:{2} \n Preferrred {3} {4}\nZoom:{5}\n\n",
-                FlxG.resolutionWidth,
-                FlxG.resolutionHeight, FlxG.fullscreen,
-                GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width,
-                GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height,
-                FlxG.zoom);
+            Console.WriteLine("Running Game at Settings: {0}x{1}\nFullscreen?: {2}\nPreferrred: {3}x{4}", FlxG.resolutionWidth, FlxG.resolutionHeight, FlxG.fullscreen, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
             FlxG.Game = this;
 #if !WINDOWS_PHONE
@@ -142,7 +97,6 @@ namespace Loader_Four
 
             base.Initialize();
         }
-
     }
 
     #region Application entry point
