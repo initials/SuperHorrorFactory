@@ -44,6 +44,11 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+    <Compile Include="tiles\level1_tiles.png">
+      <Name>level1_tiles</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="avatar\andre.png">
@@ -55,6 +60,16 @@
   <ItemGroup>
     <Content Include="logo\logo.csv">
       <Name>logo</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="levels\Super Horror Factory.oep">
+      <Name>Super Horror Factory</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="levels\testLevel.oel">
+      <Name>testLevel</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

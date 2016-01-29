@@ -165,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="avatar\Avatar.cs" />
+    <Compile Include="sprites\Andre.cs" />
+    <Compile Include="sprites\Crate.cs" />
     <Compile Include="sprites\MorseCodeGraphic.cs" />
     <Compile Include="sprites\SpriteFactory.cs" />
     <Compile Include="sprites\TimeKeeper.cs" />

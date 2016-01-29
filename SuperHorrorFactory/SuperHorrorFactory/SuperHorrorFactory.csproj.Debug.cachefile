@@ -1,8 +1,11 @@
 Content\logo\logo.xnb
 Content\avatar\andre.xnb
 Content\sfx\thunder.xnb
+Content\tiles\level1_tiles.xnb
 Content\avatar\andre.csv
 Content\logo\logo.csv
+Content\levels\Super Horror Factory.oep
+Content\levels\testLevel.oel
 OgmoEditor2\OgmoEditor2Project.oep
 OgmoEditor2\SportsGround.oel
 Content\flixel\autotiles.xnb

@@ -12,12 +12,21 @@ namespace SuperHorrorFactory
     public class PlayState : FlxState
     {
         private FlxTilemap tiles;
+        List<Dictionary<string, string>> p;
+
 
         override public void create()
         {
             base.create();
 
-            createTestObjects();
+            //createTestObjects();
+
+            p = FlxXMLReader.readNodesFromOelFile("Content/levels/testLevel.oel", "level/Sprites");
+
+            foreach (Dictionary<string, string> item in p)
+            {
+                createSprite(item); //item["Name"], item["x"], item["y"]
+            }
 
             buildCave();
 
@@ -26,23 +35,23 @@ namespace SuperHorrorFactory
         private void buildCave()
         {
             // make a new cave of tiles 50x40;
-            FlxCaveGenerator cav = new FlxCaveGenerator(50, 40, 0.52f, 5);
+            FlxCaveGenerator cav = new FlxCaveGenerator(50, 50, 0.48f, 5);
 
             //Create a matrix based on these parameters.
             int[,] matr = cav.generateCaveLevel(3, 0, 2, 0, 1, 1, 1, 1);
-            matr = cav.editRectangle(matr, 2, 2, 4, 4, 0);
-            matr = cav.editRectangle(matr, 10, 10, 4, 4, 1);
-
-            matr = cav.editRectangle(matr, 4, 4, 2, 2, 0);
-            matr = cav.editRectangle(matr, 8, 8, 2, 2, 0);
+            foreach (Dictionary<string, string> item in p)
+            {
+                if (item["Name"]=="Crate")
+                    matr = cav.editRectangle(matr, Convert.ToInt32(item["x"]) / 10, Convert.ToInt32(item["y"]) / 10 , 4, 4, 0);
+            }
 
             //convert the array to a comma separated string
             string newMap = cav.convertMultiArrayToString(matr);
 
             //Create a tilemap and assign the cave map.
             tiles = new FlxTilemap();
-            tiles.auto = FlxTilemap.AUTO;
-            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("flixel/autotiles_16x16"), 16, 16);
+            tiles.auto = FlxTilemap.ALT;
+            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/level1_tiles"), 10, 10);
             tiles.setScrollFactors(1, 1);
             add(tiles);
         }
@@ -50,28 +59,28 @@ namespace SuperHorrorFactory
         private void createTestObjects()
         {
             Dictionary<string, string> sp = new Dictionary<string, string>();
-            sp.Add("Sprite", "SuperHorrorFactory.Avatar");
+            sp.Add("Name", "Avatar");
             sp.Add("x", "100");
             sp.Add("y", "100");
 
             createSprite(sp);
 
             sp = new Dictionary<string, string>();
-            sp.Add("Sprite", "SuperHorrorFactory.Avatar");
+            sp.Add("Name", "Avatar");
             sp.Add("x", "222");
             sp.Add("y", "222");
 
             createSprite(sp);
 
             sp = new Dictionary<string, string>();
-            sp.Add("Sprite", "SuperHorrorFactory.Avatar");
+            sp.Add("Name", "Avatar");
             sp.Add("x", "66");
             sp.Add("y", "0");
 
             createSprite(sp);
 
             sp = new Dictionary<string, string>();
-            sp.Add("Sprite", "SuperHorrorFactory.Avatar");
+            sp.Add("Name", "Avatar");
             sp.Add("x", "0");
             sp.Add("y", "55");
 
@@ -80,9 +89,10 @@ namespace SuperHorrorFactory
 
         public void createSprite(Dictionary<string,string> SpriteInfo)
         {
-            var type = Type.GetType(SpriteInfo["Sprite"]);
+            string namePass =  "SuperHorrorFactory." + SpriteInfo["Name"];
+            var typ = Type.GetType(namePass);
 
-            var myObject = (FlxSprite)Activator.CreateInstance(type, 
+            var myObject = (FlxSprite)Activator.CreateInstance(typ, 
                 Convert.ToInt32(SpriteInfo["x"]), 
                 Convert.ToInt32(SpriteInfo["y"]));
             add(myObject);

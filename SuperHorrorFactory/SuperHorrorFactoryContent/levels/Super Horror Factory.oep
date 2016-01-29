@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OgmoVersion>1.0</OgmoVersion>
+  <Name>Super Horror Factory</Name>
+  <BackgroundColor A="255" R="125" G="160" B="255" />
+  <GridColor A="255" R="255" G="240" B="90" />
+  <LevelDefaultSize>
+    <Width>1920</Width>
+    <Height>1080</Height>
+  </LevelDefaultSize>
+  <LevelMinimumSize>
+    <Width>64</Width>
+    <Height>48</Height>
+  </LevelMinimumSize>
+  <LevelMaximumSize>
+    <Width>19200</Width>
+    <Height>10800</Height>
+  </LevelMaximumSize>
+  <Filename>E:\VisualStudio2010\SuperHorrorFactory\SuperHorrorFactory\SuperHorrorFactoryContent\levels\Super Horror Factory.oep</Filename>
+  <AngleMode>Degrees</AngleMode>
+  <CameraEnabled>false</CameraEnabled>
+  <CameraSize>
+    <Width>640</Width>
+    <Height>480</Height>
+  </CameraSize>
+  <ExportCameraPosition>false</ExportCameraPosition>
+  <LevelValueDefinitions />
+  <LayerDefinitions>
+    <LayerDefinition xsi:type="GridLayerDefinition">
+      <Name>Grid</Name>
+      <Grid>
+        <Width>10</Width>
+        <Height>10</Height>
+      </Grid>
+      <ScrollFactor>
+        <X>1</X>
+        <Y>1</Y>
+      </ScrollFactor>
+      <Color A="255" R="0" G="0" B="0" />
+      <ExportMode>CSV</ExportMode>
+    </LayerDefinition>
+    <LayerDefinition xsi:type="TileLayerDefinition">
+      <Name>Tiles</Name>
+      <Grid>
+        <Width>10</Width>
+        <Height>10</Height>
+      </Grid>
+      <ScrollFactor>
+        <X>1</X>
+        <Y>1</Y>
+      </ScrollFactor>
+      <ExportMode>CSV</ExportMode>
+    </LayerDefinition>
+    <LayerDefinition xsi:type="EntityLayerDefinition">
+      <Name>Sprites</Name>
+      <Grid>
+        <Width>10</Width>
+        <Height>10</Height>
+      </Grid>
+      <ScrollFactor>
+        <X>1</X>
+        <Y>1</Y>
+      </ScrollFactor>
+    </LayerDefinition>
+  </LayerDefinitions>
+  <Tilesets>
+    <Tileset>
+      <Name>NewTileset0</Name>
+      <FilePath>..\avatar\andre.png</FilePath>
+      <TileSize>
+        <Width>10</Width>
+        <Height>10</Height>
+      </TileSize>
+      <TileSep>0</TileSep>
+    </Tileset>
+  </Tilesets>
+  <EntityDefinitions>
+    <EntityDefinition Name="Andre" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>10</Width>
+        <Height>10</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="0" G="128" B="64" />
+      </ImageDefinition>
+      <ValueDefinitions />
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+    <EntityDefinition Name="Crate" Limit="-1" ResizableX="true" ResizableY="true" Rotatable="false" RotateIncrement="15">
+      <Size>
+        <Width>40</Width>
+        <Height>40</Height>
+      </Size>
+      <Origin>
+        <X>0</X>
+        <Y>0</Y>
+      </Origin>
+      <ImageDefinition DrawMode="Rectangle" ImagePath="" Tiled="false">
+        <RectColor A="255" R="100" G="45" B="46" />
+      </ImageDefinition>
+      <ValueDefinitions />
+      <NodesDefinition Enabled="false" Limit="-1" DrawMode="None" Ghost="false" />
+    </EntityDefinition>
+  </EntityDefinitions>
+</project>
