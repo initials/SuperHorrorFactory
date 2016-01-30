@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using org.flixel;
 using Microsoft.Xna.Framework;
+using SuperHorrorFactory;
 
 namespace Loader_SuperHorrorFactory
 {
@@ -31,6 +32,8 @@ namespace Loader_SuperHorrorFactory
             int w = FlxG.resolutionWidth / FlxG.zoom;
             int h = FlxG.resolutionHeight / FlxG.zoom;
             string buildType = "FULL";
+
+            Registry reg = new Registry();
 
             initGame(w, h, new SuperHorrorFactory.PlayState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
 

@@ -4,10 +4,12 @@ Content\avatar\andre.xnb
 Content\sfx\thunder.xnb
 Content\tiles\lemonade_autotiles_16x16.xnb
 Content\objects\LargeCrate.xnb
+Content\tiles\oryx_16bit_fantasy_world_trans.xnb
 Content\avatar\andre.csv
 Content\logo\logo.csv
 Content\levels\Super Horror Factory.oep
 Content\levels\testLevel.oel
+Content\levels\oryx.oel
 OgmoEditor2\OgmoEditor2Project.oep
 OgmoEditor2\SportsGround.oel
 Content\flixel\autotiles.xnb

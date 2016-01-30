@@ -59,6 +59,11 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+    <Compile Include="tiles\oryx_16bit_fantasy_world_trans.png">
+      <Name>oryx_16bit_fantasy_world_trans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="avatar\andre.png">
@@ -80,6 +85,12 @@
     </Content>
     <Content Include="levels\testLevel.oel">
       <Name>testLevel</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="levels\oryx.oel">
+      <Name>oryx</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

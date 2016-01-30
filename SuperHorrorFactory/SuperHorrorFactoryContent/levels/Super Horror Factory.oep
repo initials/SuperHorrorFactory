@@ -29,8 +29,8 @@
     <LayerDefinition xsi:type="GridLayerDefinition">
       <Name>Grid</Name>
       <Grid>
-        <Width>16</Width>
-        <Height>16</Height>
+        <Width>24</Width>
+        <Height>24</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -42,8 +42,8 @@
     <LayerDefinition xsi:type="TileLayerDefinition">
       <Name>Tiles</Name>
       <Grid>
-        <Width>16</Width>
-        <Height>16</Height>
+        <Width>24</Width>
+        <Height>24</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -54,8 +54,8 @@
     <LayerDefinition xsi:type="EntityLayerDefinition">
       <Name>Sprites</Name>
       <Grid>
-        <Width>16</Width>
-        <Height>16</Height>
+        <Width>24</Width>
+        <Height>24</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -70,6 +70,15 @@
       <TileSize>
         <Width>16</Width>
         <Height>16</Height>
+      </TileSize>
+      <TileSep>0</TileSep>
+    </Tileset>
+    <Tileset>
+      <Name>NewTileset1</Name>
+      <FilePath>..\tiles\oryx_16bit_fantasy_world_trans.png</FilePath>
+      <TileSize>
+        <Width>24</Width>
+        <Height>24</Height>
       </TileSize>
       <TileSep>0</TileSep>
     </Tileset>
