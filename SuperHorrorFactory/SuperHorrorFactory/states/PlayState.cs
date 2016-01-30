@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using org.flixel;
 using System.Linq;
 using System.Xml.Linq;
+using Midi;
 
 namespace SuperHorrorFactory
 {
@@ -13,6 +14,8 @@ namespace SuperHorrorFactory
     {
         private FlxTilemap tiles;
         List<Dictionary<string, string>> p;
+        private static MidiKeyboard n;
+        //private static MidiInput input;
 
 
         override public void create()
@@ -30,6 +33,10 @@ namespace SuperHorrorFactory
 
             buildCave();
 
+            n = new MidiKeyboard();
+            //n.Run();
+
+            //input = new MidiInput();
         }
 
         private void buildCave()
@@ -97,6 +104,8 @@ namespace SuperHorrorFactory
                 Convert.ToInt32(SpriteInfo["y"]));
             add(myObject);
 
+            
+
         }
 
         override public void update()
@@ -106,7 +115,29 @@ namespace SuperHorrorFactory
                 FlxG.state = new PlayState();
                 return;
             }
+
+            
+
+            //lock (this)
+            //{
+            //    InputDevice inputDevice = InputDevice.InstalledDevices[1];
+            //    inputDevice.Open();
+            //    inputDevice.StartReceiving(null);
+
+            //    inputDevice.NoteOn += new InputDevice.NoteOnHandler(this.NoteOn);
+            //    inputDevice.NoteOff += new InputDevice.NoteOffHandler(this.NoteOff);
+
+            //    inputDevice.StopReceiving();
+            //    inputDevice.Close();
+            //    inputDevice.RemoveAllEventHandlers();
+            //}
+
+            n.Run();
             base.update();
+
+            
+
+
         }
 
         protected bool overlapped(object Sender, FlxSpriteCollisionEvent e)

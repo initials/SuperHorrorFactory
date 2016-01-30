@@ -11,6 +11,9 @@ using Microsoft.Xna.Framework.Media;
 
 using org.flixel;
 using System.IO;
+using SuperHorrorFactory;
+using Midi;
+
 
 namespace Loader_SuperHorrorFactory
 {
@@ -104,11 +107,18 @@ namespace Loader_SuperHorrorFactory
     static class Program
     {
         //application entry point
+        [STAThread]
         static void Main(string[] args)
         {
             using (FlxFactory game = new FlxFactory())
             {
+                
+
                 game.Run();
+
+
+
+
             }
         }
     }

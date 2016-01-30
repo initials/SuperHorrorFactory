@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="SuperHorrorFactory">
+</Property><Property Name="Solution File" Value="C:\_Files\game_dev\SuperHorrorFactory\SuperHorrorFactory.sln">
+</Property><Property Name="Date" Value="Saturday, 30 January 2016">
+</Property><Property Name="Time" Value="13:26:32 PM">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\MidiExamples.csproj" Description="Project file successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\MidiExamples.csproj">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Example01.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Example01.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Example02.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Example02.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Example03.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Example03.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Example05.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Example05.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Example06.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Example06.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\ExampleBase.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\ExampleBase.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\ExampleUtil.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\ExampleUtil.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Program.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Program.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\_Files\game_dev\SuperHorrorFactory\Backup1\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\MidiExamples.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\MidiExamples.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MidiExamples" Source="..\XNAFlixel\XFlixel\midi-dot-net\MidiExamples\MidiExamples.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
