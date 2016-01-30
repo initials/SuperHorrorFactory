@@ -47,7 +47,7 @@ namespace SuperHorrorFactory
             tiles.auto = FlxTilemap.STRING;
             tiles.loadMap(p[0]["InnerText"], FlxG.Content.Load<Texture2D>("tiles/oryx_16bit_fantasy_world_trans"), 24, 24);
             tiles.setScrollFactors(1, 1);
-            add(tiles);
+            //add(tiles);
 
         }
 
