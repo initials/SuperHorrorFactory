@@ -14,9 +14,7 @@ namespace SuperHorrorFactory
     {
         private FlxTilemap tiles;
         List<Dictionary<string, string>> p;
-        private static MidiKeyboard n;
-        //private static MidiInput input;
-
+        private static FlxMidi midi;
 
         override public void create()
         {
@@ -33,7 +31,7 @@ namespace SuperHorrorFactory
 
             buildCave();
 
-            n = new MidiKeyboard();
+            midi = new FlxMidi();
             //n.Run();
 
             //input = new MidiInput();
@@ -49,7 +47,7 @@ namespace SuperHorrorFactory
             foreach (Dictionary<string, string> item in p)
             {
                 if (item["Name"]=="Crate")
-                    matr = cav.editRectangle(matr, Convert.ToInt32(item["x"]) / 10, Convert.ToInt32(item["y"]) / 10 , 4, 4, 0);
+                    matr = cav.editRectangle(matr, Convert.ToInt32(item["x"]) / 16, Convert.ToInt32(item["y"]) / 16 , 4, 4, 0);
             }
 
             //convert the array to a comma separated string
@@ -57,8 +55,8 @@ namespace SuperHorrorFactory
 
             //Create a tilemap and assign the cave map.
             tiles = new FlxTilemap();
-            tiles.auto = FlxTilemap.ALT;
-            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/level1_tiles"), 10, 10);
+            tiles.auto = FlxTilemap.AUTO;
+            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/lemonade_autotiles_16x16"), 16, 16);
             tiles.setScrollFactors(1, 1);
             add(tiles);
         }
@@ -116,23 +114,7 @@ namespace SuperHorrorFactory
                 return;
             }
 
-            
-
-            //lock (this)
-            //{
-            //    InputDevice inputDevice = InputDevice.InstalledDevices[1];
-            //    inputDevice.Open();
-            //    inputDevice.StartReceiving(null);
-
-            //    inputDevice.NoteOn += new InputDevice.NoteOnHandler(this.NoteOn);
-            //    inputDevice.NoteOff += new InputDevice.NoteOffHandler(this.NoteOff);
-
-            //    inputDevice.StopReceiving();
-            //    inputDevice.Close();
-            //    inputDevice.RemoveAllEventHandlers();
-            //}
-
-            n.Run();
+            midi.Run();
             base.update();
 
             

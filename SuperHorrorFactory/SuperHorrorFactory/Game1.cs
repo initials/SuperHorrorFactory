@@ -31,10 +31,10 @@ namespace Loader_SuperHorrorFactory
         public FlxFactory()
         {
 
-            int div = 4;
+            int div = 2;
             FlxG.zoom = 1;
 #if ! DEBUG
-            FlxG.zoom = 4;
+            FlxG.zoom = 2;
             div = 1;
             FlxG.fullscreen = true;
 

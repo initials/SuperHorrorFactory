@@ -16,7 +16,7 @@
     <Width>19200</Width>
     <Height>10800</Height>
   </LevelMaximumSize>
-  <Filename>E:\VisualStudio2010\SuperHorrorFactory\SuperHorrorFactory\SuperHorrorFactoryContent\levels\Super Horror Factory.oep</Filename>
+  <Filename>C:\_Files\game_dev\SuperHorrorFactory\SuperHorrorFactory\SuperHorrorFactoryContent\levels\Super Horror Factory.oep</Filename>
   <AngleMode>Degrees</AngleMode>
   <CameraEnabled>false</CameraEnabled>
   <CameraSize>
@@ -29,8 +29,8 @@
     <LayerDefinition xsi:type="GridLayerDefinition">
       <Name>Grid</Name>
       <Grid>
-        <Width>10</Width>
-        <Height>10</Height>
+        <Width>16</Width>
+        <Height>16</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -42,8 +42,8 @@
     <LayerDefinition xsi:type="TileLayerDefinition">
       <Name>Tiles</Name>
       <Grid>
-        <Width>10</Width>
-        <Height>10</Height>
+        <Width>16</Width>
+        <Height>16</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -54,8 +54,8 @@
     <LayerDefinition xsi:type="EntityLayerDefinition">
       <Name>Sprites</Name>
       <Grid>
-        <Width>10</Width>
-        <Height>10</Height>
+        <Width>16</Width>
+        <Height>16</Height>
       </Grid>
       <ScrollFactor>
         <X>1</X>
@@ -66,10 +66,10 @@
   <Tilesets>
     <Tileset>
       <Name>NewTileset0</Name>
-      <FilePath>..\avatar\andre.png</FilePath>
+      <FilePath>..\tiles\lemonade_autotiles_16x16.png</FilePath>
       <TileSize>
-        <Width>10</Width>
-        <Height>10</Height>
+        <Width>16</Width>
+        <Height>16</Height>
       </TileSize>
       <TileSep>0</TileSep>
     </Tileset>
@@ -77,8 +77,8 @@
   <EntityDefinitions>
     <EntityDefinition Name="Andre" Limit="-1" ResizableX="false" ResizableY="false" Rotatable="false" RotateIncrement="15">
       <Size>
-        <Width>10</Width>
-        <Height>10</Height>
+        <Width>16</Width>
+        <Height>16</Height>
       </Size>
       <Origin>
         <X>0</X>
@@ -92,8 +92,8 @@
     </EntityDefinition>
     <EntityDefinition Name="Crate" Limit="-1" ResizableX="true" ResizableY="true" Rotatable="false" RotateIncrement="15">
       <Size>
-        <Width>40</Width>
-        <Height>40</Height>
+        <Width>32</Width>
+        <Height>32</Height>
       </Size>
       <Origin>
         <X>0</X>

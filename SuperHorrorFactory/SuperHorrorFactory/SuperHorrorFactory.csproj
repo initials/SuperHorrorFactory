@@ -170,15 +170,11 @@
     <Compile Include="sprites\MorseCodeGraphic.cs" />
     <Compile Include="sprites\SpriteFactory.cs" />
     <Compile Include="sprites\TimeKeeper.cs" />
-    <Compile Include="states\ExampleUtil.cs" />
-    <Compile Include="states\InputManager.cs" />
     <Compile Include="states\IntroState.cs" />
     <Compile Include="logo\Logo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="states\MidiInput.cs" />
-    <Compile Include="states\MidiKeyboard.cs" />
     <Compile Include="states\MorseCodeState.cs" />
     <Compile Include="states\PlayState.cs" />
   </ItemGroup>

@@ -28,7 +28,8 @@ namespace SuperHorrorFactory
         public Crate(int xPos, int yPos)
             : base(xPos, yPos)
         {
-            createGraphic(40, 40, Color.Brown);
+            loadGraphic("objects/LargeCrate", false, false, 64, 64);
+
         
         }
 

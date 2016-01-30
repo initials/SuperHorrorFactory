@@ -32,7 +32,7 @@ namespace Loader_SuperHorrorFactory
             int h = FlxG.resolutionHeight / FlxG.zoom;
             string buildType = "FULL";
 
-            initGame(w, h, new SuperHorrorFactory.IntroState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
+            initGame(w, h, new SuperHorrorFactory.PlayState(), new Color(15, 15, 15), true, new Color(5, 5, 5));
 
             FlxG.debug = false;
             FlxG.level = -1;
