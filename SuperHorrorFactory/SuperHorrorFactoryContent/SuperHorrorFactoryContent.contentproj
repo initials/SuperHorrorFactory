@@ -73,6 +73,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="characters\oryx_16bit_fantasy_creatures_trans.png">
+      <Name>oryx_16bit_fantasy_creatures_trans</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="logo\logo.csv">
       <Name>logo</Name>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

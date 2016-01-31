@@ -20,6 +20,8 @@ namespace SuperHorrorFactory
         {
             base.create();
 
+            FlxG.elapsedTotal = 0;
+
             //Registry reg = new Registry();
 
             //createTestObjects();
@@ -125,6 +127,27 @@ namespace SuperHorrorFactory
 
             }
 
+            for (int i = 0; i < 55; i++)
+            {
+                int rx = FlxU.randomInt(1, 35);
+                int ry = FlxU.randomInt(1, 35);
+
+                int rz = tiles.getTile(rx, ry);
+
+                if (rz == 292)
+                {
+                    Dictionary<string, string> x = new Dictionary<string, string>();
+                    x.Add("Name", "Character");
+                    x.Add("x", (rx * 24).ToString());
+                    x.Add("y", ((ry * 24)-2).ToString());
+
+                    createSprite(x);
+                }
+
+            }
+
+
+
         }
 
         private void createTestObjects()
@@ -190,11 +213,15 @@ namespace SuperHorrorFactory
 
 
             base.update();
-            if (FlxG.keys.justPressed(Keys.A))
+
+            if (FlxG.elapsedTotal> 1.0f)
             {
-                Registry.midi.inputDevice.RemoveAllEventHandlers();
-                FlxG.state = new PlayState();
-                return;
+                if (FlxG.keys.justPressed(Keys.Enter))
+                {
+                    Registry.midi.inputDevice.RemoveAllEventHandlers();
+                    FlxG.state = new PlayState();
+                    return;
+                }
             }
 
 

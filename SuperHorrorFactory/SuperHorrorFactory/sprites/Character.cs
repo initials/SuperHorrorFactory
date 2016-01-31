@@ -1,217 +1,198 @@
-﻿//Knight M
-//Thief M
-//Ranger M
-//Wizard M
-//Priest M
-//Shaman M
-//Berserker M
-//Swordsman M
-//Paladin M
-//Knight F
-//Thief F
-//Ranger F
-//Wizard F
-//Priest F
-//Shaman F
-//Berserker F
-//Swordsman F
-//Paladin F
+﻿/*
+ * Add these to Visual Studio to quickly create new FlxSprites
+ */
 
-//Bandit
-//Hooded Human
-//Human M
-//Human F
-//Merchant
-//Butcher
-//Chef
-//Bishop
-//King
-//Queen
-//Prince
-//Princess
-//Guard M
-//Guard F
-//Knight
-//Guard Alt M
-//Guard Alt F
-//Knight Alt
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using org.flixel;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using XNATweener;
 
-//Bandit
-//Hooded Human
-//Human M
-//Human F
-//Merchant
-//Slave
-//Alchemist
-//Prophet
-//King
-//Queen
-//Prince
-//Princess
-//Guard M
-//Guard F
-//Knight
-//Guard Alt M
-//Guard Alt F
-//Knight Alt
+namespace SuperHorrorFactory
+{
+    class Character : FlxSprite
+    {
+        /// <summary>
+        /// A temporary bool to determine if the sprite is ready.
+        /// </summary>
+        private bool _ready;
 
-//Assassin
-//Bandit
-//Dwarf
-//Dwarf Alt
-//Dwarf Priest
-//Drow Assassin
-//Drow Fighter
-//Drow Ranger
-//Drow Mage
-//Drow Sorceress
-//High Elf Fighter M
-//High Elf Shield Fighter M
-//High Elf Ranger M
-//High Elf Mage M
-//High Elf Fighter F
-//High Elf Shield Fighter F
-//High Elf Ranger F
-//High Elf Mage F
+        private Vector2Tweener tween;
 
-//Wood Elf Fighter M
-//Wood Elf Shield Fighter M
-//Wood Elf Ranger M
-//Wood Elf Druid M
-//Wood Elf Fighter F
-//Wood Elf Shield Fighter F
-//Wood Elf Ranger F
-//Wood Elf Druid F
-//Lizardman Warrior
-//Lizardman Archer
-//Lizardman Captain
-//Lizardman Shaman
-//Lizardman High Shaman
-//Gnome Fighter
-//Gnome Fighter Alt
-//Gnome Fighter Alt
-//Gnome Wizard
-//Gnome Wizard Alt
-//Gnoll Fighter
-//Gnoll Fighter Alt
-//Gnoll Fighter Captain
-//Gnoll Shaman
-//Minotaur Axe
-//Minotaur Club
-//Minotaur Alt
-//Elder Demon
-//Fire Demon
-//Horned Demon
-//Stone Golem
-//Mud Golem
-//Flesh Golem
-//Lava Golem
-//Bone Golem
-//Djinn
-//Treant
-//Mimic
+        /// <summary>
+        /// Sprite Constructor
+        /// </summary>
+        /// <param name="xPos"></param>
+        /// <param name="yPos"></param>
+        public Character(int xPos, int yPos)
+            : base(xPos, yPos)
+        {
+            loadGraphic("characters/oryx_16bit_fantasy_creatures_trans", true, false, 24, 24);
 
-//Purple Slime
-//Green Slime
-//Black Bat
-//Red Bat
-//Beholder
-//Red Spider
-//Black Spider
-//Grey Rat
-//Brown Rat
-//Cobra
-//Beetle
-//Fire Beetle
-//Grey Wolf
-//Brown Wolf
-//Black Wolf
-//Dove/Pigeon
-//Blue Bird
-//Crow/Raven
-//Goblin Fighter
-//Goblin Archer
-//Goblin Captain
-//Goblin King
-//Goblin Mystic
-//Orc Fighter
-//Orc Captain
-//Orc Mystic
-//Troll
-//Troll Captain
-//Cycops
-//Cyclops Alt
-//Death Knight
-//Death Knight Alt
-//Death Knight Alt
-//Earth Elemental
-//Ice/Water Elemental
-//Air Elemental
 
-//Zombie
-//Headless Zombie
-//Skeleton
-//Skeleton Archer
-//Skeleton Warrior
-//Shadow
-//Ghost
-//Mummy
-//Pharoah
-//Necromancer
-//Dark Wizard
-//Death
-//Vampire
-//Vampire Alt
-//Vampire Lord
-//Witch
-//Frost Witch
-//Green Witch
+            int c = FlxU.randomInt(21, 29);
 
-//Red Dragon
-//Purple Dragon
-//Gold Dragon
-//Green Dragon
-//Yeti
-//Yeti Alt
-//Giant Leech
-//Giant Worm
-//Brown Bear
-//Grey Bear
-//Polar Bear
-//Giant Scorpion
-//Scorpion Alt
-//Scorpion Alt
-//Ettin
-//Ettin Alt
-//Pixie/Fairy/Sprite
-//Imp/Demon/Devil
+            //c *= 2;
 
-//Wisp
-//Wisp Alt
-//Turnip
-//Rotten Turnip
-//Fire Minion
-//Ice Minion
-//Smoke Minion
-//Mud Minion
-//Eye
-//Eyes
-//Red Specter
-//Blue Specter
-//Brown Specter
-//Blue Jelly
-//Green Jelly
-//Red Jelly
-//Flame
-//Cold Flame
+            //c += 1;
+
+            addAnimation("idle", new int[] { c, (c+20) }, FlxU.randomInt(2,6), true);
+
+            play("idle");
+
+            tween = new Vector2Tweener(new Vector2(x,y), new Vector2(x,y), 0.3f, XNATweener.Cubic.EaseOut);
+
+            tween.Ended +=new EndHandler(endTween);
+
+            tween.Pause();
+            
+        }
 
 
 
+        public void endTween()
+        {
+            tween.Pause();
+            //tween.Stop();
+        }
+
+        /// <summary>
+        /// The Update Cycle. Called once every cycle.
+        /// </summary>
+        override public void update()
+        {
+            if (!tween.Playing)
+            {
+                if (FlxG.keys.justPressed(Keys.S) || FlxU.random() < 0.015f)
+                {
+                    moveDown();
+                }
+                if (FlxG.keys.justPressed(Keys.W) || FlxU.random() < 0.015f)
+                {
+                    moveUp();
+                }
+                if (FlxG.keys.justPressed(Keys.A) || FlxU.random() < 0.015f)
+                {
+                    moveLeft();
+                }
+                if (FlxG.keys.justPressed(Keys.D) || FlxU.random() < 0.015f)
+                {
+                    moveRight();
+                }
+            }
 
 
 
+            x = tween.Position.X;
+            y = tween.Position.Y;
 
+            tween.Update(FlxG.elapsedAsGameTime);
 
+            base.update();
+        }
 
+        private void moveRight()
+        {
+            tween = new Vector2Tweener(new Vector2(x, y), new Vector2(x + 24, y), 0.3f, XNATweener.Cubic.EaseOut);
+            tween.Ended += new EndHandler(endTween);
+        }
 
+        private void moveLeft()
+        {
+            tween = new Vector2Tweener(new Vector2(x, y), new Vector2(x - 24, y), 0.3f, XNATweener.Cubic.EaseOut);
+            tween.Ended += new EndHandler(endTween);
+        }
 
+        private void moveUp()
+        {
+            tween = new Vector2Tweener(new Vector2(x, y), new Vector2(x, y - 24), 0.3f, XNATweener.Cubic.EaseOut);
+            tween.Ended += new EndHandler(endTween);
+        }
+
+        private void moveDown()
+        {
+            tween = new Vector2Tweener(new Vector2(x, y), new Vector2(x, y + 24), 0.3f, XNATweener.Cubic.EaseOut);
+            tween.Ended += new EndHandler(endTween);
+        }
+
+        /// <summary>
+        /// The render code. Add any additional render code here.
+        /// </summary>
+        /// <param name="spriteBatch"></param>
+        public override void render(SpriteBatch spriteBatch)
+        {
+            base.render(spriteBatch);
+        }
+
+        /// <summary>
+        /// Called when the sprite hit something on its bottom edge.
+        /// </summary>
+        /// <param name="Contact">The Object that it collided with.</param>
+        /// <param name="Velocity">The Velocity that is will now have???</param>
+        public override void hitBottom(FlxObject Contact, float Velocity)
+        {
+            base.hitBottom(Contact, Velocity);
+        }
+
+        /// <summary>
+        /// Called when the sprite hits something on its left side.
+        /// </summary>
+        /// <param name="Contact">The Object that it collided with.</param>
+        /// <param name="Velocity"></param>
+        public override void hitLeft(FlxObject Contact, float Velocity)
+        {
+            base.hitLeft(Contact, Velocity);
+        }
+
+        /// <summary>
+        /// Called when the sprite hits something on its right side
+        /// </summary>
+        /// <param name="Contact"></param>
+        /// <param name="Velocity"></param>
+        public override void hitRight(FlxObject Contact, float Velocity)
+        {
+            base.hitRight(Contact, Velocity);
+        }
+
+        /// <summary>
+        /// Called when the sprite hits something on its side, either left or right.
+        /// </summary>
+        /// <param name="Contact"></param>
+        /// <param name="Velocity"></param>
+        public override void hitSide(FlxObject Contact, float Velocity)
+        {
+            base.hitSide(Contact, Velocity);
+        }
+
+        /// <summary>
+        /// Called when the sprite hits something on its top
+        /// </summary>
+        /// <param name="Contact"></param>
+        /// <param name="Velocity"></param>
+        public override void hitTop(FlxObject Contact, float Velocity)
+        {
+            base.hitTop(Contact, Velocity);
+        }
+
+        /// <summary>
+        /// Used when the sprite is damaged or hurt. Takes points off "Health".
+        /// </summary>
+        /// <param name="Damage">Amount of damage to take away.</param>
+        public override void hurt(float Damage)
+        {
+            base.hurt(Damage);
+        }
+
+        /// <summary>
+        /// Kill the sprite.
+        /// </summary>
+        public override void kill()
+        {
+            base.kill();
+        }
+    }
+}

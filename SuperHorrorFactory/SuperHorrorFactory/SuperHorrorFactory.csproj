@@ -165,9 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="avatar\Avatar.cs" />
-    <Compile Include="avatar\coolnew.cs" />
     <Compile Include="Registry.cs" />
     <Compile Include="sprites\Andre.cs" />
+    <None Include="sprites\Characters" />
+    <Compile Include="sprites\Character.cs" />
     <Compile Include="sprites\PickUp.cs" />
     <Compile Include="sprites\TileCrate.cs" />
     <Compile Include="sprites\Crate.cs" />
