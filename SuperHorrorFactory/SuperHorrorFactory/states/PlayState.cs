@@ -73,7 +73,7 @@ namespace SuperHorrorFactory
         private void buildCave()
         {
             // make a new cave of tiles 50x40;
-            FlxCaveGenerator cav = new FlxCaveGenerator(50, 50, 0.48f, 5);
+            FlxCaveGenerator cav = new FlxCaveGenerator(50, 50, 0.52f, 30);
 
             //Create a matrix based on these parameters.
             int[,] matr = cav.generateCaveLevel(3, 0, 2, 0, 1, 1, 1, 1);
@@ -101,12 +101,29 @@ namespace SuperHorrorFactory
 
             //Create a tilemap and assign the cave map.
             tiles = new FlxTilemap();
-            tiles.auto = FlxTilemap.AUTO;
-            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/lemonade_autotiles_16x16"), 16, 16);
+            tiles.auto = FlxTilemap.REMAPALT;
+            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/oryx_16bit_fantasy_world_trans"), 24, 24);
             tiles.setScrollFactors(1, 1);
             add(tiles);
 
+            for (int i = 0; i < 55; i++)
+            {
+                int rx = FlxU.randomInt(1, 35);
+                int ry = FlxU.randomInt(1, 35);
+                
+                int rz = tiles.getTile(rx, ry);
 
+                if (rz == 292)
+                {
+                    Dictionary<string, string> x = new Dictionary<string, string>();
+                    x.Add("Name", "PickUp");
+                    x.Add("x", (rx*24).ToString() );
+                    x.Add("y", (ry*24).ToString() );
+
+                    createSprite(x);
+                }
+
+            }
 
         }
 
@@ -171,16 +188,17 @@ namespace SuperHorrorFactory
         override public void update()
         {
 
-            base.update();
 
-            if (FlxG.keys.ENTER)
+            base.update();
+            if (FlxG.keys.justPressed(Keys.A))
             {
                 Registry.midi.inputDevice.RemoveAllEventHandlers();
                 FlxG.state = new PlayState();
                 return;
             }
 
-            Registry.midi.Run();
+
+            //Registry.midi.Run();
 
 
         }
