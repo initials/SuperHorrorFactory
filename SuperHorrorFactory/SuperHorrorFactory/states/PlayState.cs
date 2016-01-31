@@ -37,7 +37,7 @@ namespace SuperHorrorFactory
 
             //midi = new org.flixel.FlxMidi();
 
-            Registry.midi.inputDevice.NoteOn += new InputDevice.NoteOnHandler(NoteOnCommand);
+            //Registry.midi.inputDevice.NoteOn += new InputDevice.NoteOnHandler(NoteOnCommand);
 
             //n.Run();
 
@@ -108,6 +108,8 @@ namespace SuperHorrorFactory
             tiles.setScrollFactors(1, 1);
             add(tiles);
 
+            Registry.level = tiles ;
+
             for (int i = 0; i < 55; i++)
             {
                 int rx = FlxU.randomInt(1, 35);
@@ -127,7 +129,7 @@ namespace SuperHorrorFactory
 
             }
 
-            for (int i = 0; i < 55; i++)
+            for (int i = 0; i < 102; i++)
             {
                 int rx = FlxU.randomInt(1, 35);
                 int ry = FlxU.randomInt(1, 35);
@@ -206,6 +208,9 @@ namespace SuperHorrorFactory
                 Convert.ToInt32(SpriteInfo["y"]));
             add(myObject);
 
+            FlxG.follow(myObject, 9);
+            FlxG.followBounds(0, 0, 10000, 10000);
+
         }
 
         override public void update()
@@ -218,7 +223,7 @@ namespace SuperHorrorFactory
             {
                 if (FlxG.keys.justPressed(Keys.Enter))
                 {
-                    Registry.midi.inputDevice.RemoveAllEventHandlers();
+                    //Registry.midi.inputDevice.RemoveAllEventHandlers();
                     FlxG.state = new PlayState();
                     return;
                 }

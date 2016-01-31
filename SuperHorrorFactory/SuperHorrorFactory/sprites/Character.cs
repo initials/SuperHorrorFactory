@@ -67,21 +67,33 @@ namespace SuperHorrorFactory
         {
             if (!tween.Playing)
             {
-                if (FlxG.keys.justPressed(Keys.S) || FlxU.random() < 0.015f)
+                if (FlxG.keys.S || FlxU.random() < 0.015f)
                 {
-                    moveDown();
+                    int tileNo = Registry.level.getTile((int)((x+12) / 24), (int)((y+12) / 24));
+
+                    int tileDown = Registry.level.getTile((int)((x+12) / 24), (int)((y + 36) / 24));
+                    //Console.WriteLine("{0} {1}", tileNo, tileDown);
+
+                    if (tileDown == 292)
+                        moveDown();
                 }
-                if (FlxG.keys.justPressed(Keys.W) || FlxU.random() < 0.015f)
+                if (FlxG.keys.W || FlxU.random() < 0.015f)
                 {
-                    moveUp();
+                    int tileDown = Registry.level.getTile((int)((x + 12) / 24), (int)((y - 12) / 24));
+                    if (tileDown == 292)
+                        moveUp();
                 }
-                if (FlxG.keys.justPressed(Keys.A) || FlxU.random() < 0.015f)
+                if (FlxG.keys.A || FlxU.random() < 0.015f)
                 {
-                    moveLeft();
+                    int tileDown = Registry.level.getTile((int)((x - 12) / 24), (int)((y+12) / 24));
+                    if (tileDown == 292)
+                        moveLeft();
                 }
-                if (FlxG.keys.justPressed(Keys.D) || FlxU.random() < 0.015f)
+                if (FlxG.keys.D || FlxU.random() < 0.015f)
                 {
-                    moveRight();
+                    int tileDown = Registry.level.getTile((int)((x + 36) / 24), (int)((y + 12) / 24));
+                    if (tileDown == 292)
+                        moveRight();
                 }
             }
 

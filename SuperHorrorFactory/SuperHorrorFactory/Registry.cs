@@ -13,9 +13,11 @@ namespace SuperHorrorFactory
         public static List<Dictionary<string, string>> boxes = new List<Dictionary<string, string>>();
         public static FlxMidi midi;
 
+        public static FlxTilemap level;
+
         public Registry()
         {
-            midi = new FlxMidi();
+            //midi = new FlxMidi();
 
         }
 
