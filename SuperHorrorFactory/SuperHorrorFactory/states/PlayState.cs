@@ -81,8 +81,6 @@ namespace SuperHorrorFactory
 
         private void buildCave2()
         {
-            
-
             string newMap = cav.convertMultiArrayToString(matr);
 
             //Create a tilemap and assign the cave map.
@@ -102,7 +100,6 @@ namespace SuperHorrorFactory
             matr = cav.generateCaveLevel(null, null, null, null, null, null, new int[] { 0,49 }, new int[] { 0,49 });
             matr = cav.grow(matr);
 
-
             foreach (Dictionary<string, string> item in Registry.boxes)
             {
                 Console.WriteLine("{0} {1} {2} {3} {4} ", item["Name"], item["x"], item["y"], item["width"], item["height"]);
@@ -121,9 +118,6 @@ namespace SuperHorrorFactory
             //        matr = cav.editRectangle(matr, Convert.ToInt32(item["x"]) / 16, Convert.ToInt32(item["y"]) / 16 , 4, 4, 0);
             //}
 
-            //convert the array to a comma separated string
-            
-
             string newMap = cav.convertMultiArrayToString(matr);
 
             //Create a tilemap and assign the cave map.
@@ -132,7 +126,6 @@ namespace SuperHorrorFactory
             tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/oryx_16bit_fantasy_world_trans"), 24, 24);
             tiles.setScrollFactors(1, 1);
             add(tiles);
-
 
             Registry.level = tiles ;
 
