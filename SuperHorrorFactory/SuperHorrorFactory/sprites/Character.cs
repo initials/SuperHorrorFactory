@@ -87,13 +87,21 @@ namespace SuperHorrorFactory
                 {
                     int tileDown = Registry.level.getTile((int)((x - 12) / 24), (int)((y+12) / 24));
                     if (tileDown == 292)
+                    {
+                        facing = Flx2DFacing.Right;
+
                         moveLeft();
+                    }
                 }
                 if (FlxG.keys.D || FlxU.random() < 0.015f)
                 {
                     int tileDown = Registry.level.getTile((int)((x + 36) / 24), (int)((y + 12) / 24));
                     if (tileDown == 292)
+                    {
+                        facing = Flx2DFacing.Left;
+
                         moveRight();
+                    }
                 }
             }
 

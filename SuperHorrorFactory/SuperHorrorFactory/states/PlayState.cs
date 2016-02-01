@@ -16,6 +16,9 @@ namespace SuperHorrorFactory
         List<Dictionary<string, string>> p;
         //private static FlxMidi midi;
 
+        private static FlxCaveGenerator cav;
+        private static int[,] matr;
+
         override public void create()
         {
             base.create();
@@ -32,6 +35,10 @@ namespace SuperHorrorFactory
             //{
             //    createSprite(item); //item["Name"], item["x"], item["y"]
             //}
+
+            //cav = new FlxCaveGenerator(50, 50, 0.47f, 30);
+            //matr = cav.generateCaveLevel(3, 0, 2, 0, 1, 1, 1, 1);
+            //cav.printCave(matr);
 
             buildCave();
 
@@ -72,13 +79,29 @@ namespace SuperHorrorFactory
 
         }
 
+        private void buildCave2()
+        {
+            
+
+            string newMap = cav.convertMultiArrayToString(matr);
+
+            //Create a tilemap and assign the cave map.
+            tiles = new FlxTilemap();
+            tiles.auto = FlxTilemap.REMAPALT;
+            tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/oryx_16bit_fantasy_world_trans"), 24, 24);
+            tiles.setScrollFactors(1, 1);
+            add(tiles);
+        }
+
         private void buildCave()
         {
             // make a new cave of tiles 50x40;
-            FlxCaveGenerator cav = new FlxCaveGenerator(50, 50, 0.52f, 30);
+            cav = new FlxCaveGenerator(50, 50, 0.52f, 30);
 
             //Create a matrix based on these parameters.
-            int[,] matr = cav.generateCaveLevel(3, 0, 2, 0, 1, 1, 1, 1);
+            matr = cav.generateCaveLevel(null, null, null, null, null, null, new int[] { 0,49 }, new int[] { 0,49 });
+            matr = cav.grow(matr);
+
 
             foreach (Dictionary<string, string> item in Registry.boxes)
             {
@@ -99,6 +122,8 @@ namespace SuperHorrorFactory
             //}
 
             //convert the array to a comma separated string
+            
+
             string newMap = cav.convertMultiArrayToString(matr);
 
             //Create a tilemap and assign the cave map.
@@ -107,6 +132,7 @@ namespace SuperHorrorFactory
             tiles.loadMap(newMap, FlxG.Content.Load<Texture2D>("tiles/oryx_16bit_fantasy_world_trans"), 24, 24);
             tiles.setScrollFactors(1, 1);
             add(tiles);
+
 
             Registry.level = tiles ;
 
@@ -145,11 +171,7 @@ namespace SuperHorrorFactory
 
                     createSprite(x);
                 }
-
             }
-
-
-
         }
 
         private void createTestObjects()
@@ -208,8 +230,8 @@ namespace SuperHorrorFactory
                 Convert.ToInt32(SpriteInfo["y"]));
             add(myObject);
 
-            FlxG.follow(myObject, 9);
-            FlxG.followBounds(0, 0, 10000, 10000);
+            //FlxG.follow(myObject, 9);
+            //FlxG.followBounds(0, 0, 10000, 10000);
 
         }
 
@@ -227,6 +249,16 @@ namespace SuperHorrorFactory
                     FlxG.state = new PlayState();
                     return;
                 }
+                if (FlxG.keys.justPressed(Keys.M))
+                {
+                    Console.WriteLine("M");
+                    matr = cav.grow(matr);
+
+                    //cav.printCave(matr);
+
+                    buildCave2();
+                }
+
             }
 
 
